@@ -16,11 +16,25 @@ class Controller extends Package
 
     public function on_start()
     {
+        $this->registerAutoload();
+
         // Extend the ServerInterface binding so that when concrete5 creates the http server we can add our middleware
         $this->app->extend(ServerInterface::class, function(ServerInterface $server) {
             // Add our custom middleware
             $server->addMiddleware($this->app->make(Middleware::class));
         });
+    }
+
+    /**
+     * We use composer.json to load custom codes instead of $pkgAutoloaderRegistries in this package.
+     * This method is not required when you install concrete5 core via composer,
+     * just for compatibility for normally installed concrete5.
+     */
+    public function registerAutoload()
+    {
+        if (file_exists($this->getPackagePath().'/vendor/autoload.php')) {
+            require $this->getPackagePath().'/vendor/autoload.php';
+        }
     }
 
 }
