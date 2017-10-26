@@ -19,7 +19,7 @@ class Controller extends Package
         // Extend the ServerInterface binding so that when concrete5 creates the http server we can add our middleware
         $this->app->extend(ServerInterface::class, function(ServerInterface $server) {
             // Add our custom middleware
-            $server->addMiddleware($this->app->make(Middleware::class));
+            return $server->addMiddleware($this->app->make(Middleware::class));
         });
     }
 
