@@ -4,7 +4,7 @@ This project is a concrete5 sample package that is powered entirely by [composer
 To install this package on a [composer based concrete5](https://github.com/concrete5/composer) site, make sure you already have `composer/installers` then run:
 
 ```sh
-$ composer install concrete5/sample_composer_package
+$ composer require concrete5/sample_composer_package
 ```
 
 Then install the package
