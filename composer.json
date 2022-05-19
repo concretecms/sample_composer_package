@@ -1,5 +1,5 @@
 {
-    "name": "concrete5/sample_composer_package",
+    "name": "concretecms/sample_composer_package",
     "description": "Sample package that is installable via composer",
     "type": "concrete5-package",
     "license": "MIT",
